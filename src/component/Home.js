@@ -33,9 +33,9 @@ class Home extends React.Component {
         //this.props.fetchMutasi('092877123','02-02-2019','09-02-2019')
         
     }
-    // handleClickLokasi = () =>{
-    //     this.props.fetchLokasi(this.state.jarak)
-    // }
+    handleClickLokasi = () =>{
+        this.props.fetchLokasi(this.state.jarak)
+    }
     render() {
         return (
             <React.Fragment>
@@ -83,13 +83,13 @@ class Home extends React.Component {
                             <Grid item><InputTextCalendar label = 'Jarak' value={this.state.jarak} onChange={e => this.setState({ jarak: e.target.value })}></InputTextCalendar></Grid>
                             <Grid item><Button variant="outlined" color="primary" onClick ={this.handleClickLokasi} style={{ cursor: 'pointer',marginTop:'10%',marginBottom:  '20%' }}>Find</Button></Grid>
                           </Grid>
-                          {/* <Grid item>
-                            {this.props.mutasinya.lokasi.length === 0 ?
+                          <Grid item>
+                            {this.props.lokasinya.lokasi.length === 0 ?
                                 ""
                                 :
-                                <ListLoc mutasi={this.props.lokasinya.lokasi} />
+                                <ListLoc lokasi={this.props.lokasinya.lokasi} />
                               }
-                            </Grid> */}
+                            </Grid>
                         </Section></Grid>
                         {/* <Grid item><Section title = 'Location : '></Section>
                         </Grid> */}
@@ -113,12 +113,12 @@ class Home extends React.Component {
 }
 const mapDispatchToProps = {
   fetchMutasi:fetchMutasi,
-  // fetchLokasi:fetchLokasi
+  fetchLokasi:fetchLokasi
 }
 const mapStateProps=(state)=>{
   return{
       mutasinya:state.mutasi,
-      // lokasinya:state.lokasi
+      lokasinya:state.lokasi
   }
 }
 export default connect(mapStateProps,mapDispatchToProps) (Home);
